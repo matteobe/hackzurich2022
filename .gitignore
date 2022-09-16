@@ -1,0 +1,11 @@
+# IDEs
+.vscode
+.idea
+
+# Local files
+.DS_Store
+
+# Notebooks
+notebooks
+*.ipynb
+*.ipynb_checkpoints
