@@ -1,0 +1,8 @@
+# Data science
+scipy
+numpy
+pandas
+
+# Visualization
+matplotlib
+plotly

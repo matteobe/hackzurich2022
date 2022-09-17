@@ -1,0 +1,22 @@
+{
+  "start_date": "2022-09-01",
+  "days": 4,
+  "frequency": "1min",
+  "nodes": {
+    "F01_R01": "room",
+    "F01_R02": "room",
+    "F01_R03": "room"
+  },
+  "sensors": {
+    "temperature": {
+      "min": 15,
+      "max": 28,
+      "setPoint": 20
+    },
+    "c02": {
+      "min": 0,
+      "max": 2000,
+      "setPoint": 200
+    }
+  }
+}
