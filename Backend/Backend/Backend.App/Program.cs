@@ -7,11 +7,8 @@ using Dijkstra.NET.ShortestPath;
 var reader = new InputReaderService();
 var data = reader.Read();
 
-var graphBuilder = new GraphBuilder();
-var graph = graphBuilder.Build(data);
+var graphBuilder = new GraphBuilder(data);
+graphBuilder.Build();
+var result = graphBuilder.GetShortestPath("a", "b");
 
-ShortestPathResult result = graph.Dijkstra(1, 2); //result contains the shortest path
-
-var path = result.GetPath();
-
-Console.WriteLine(path);
+Console.WriteLine(result == null ? "none" : string.Join("-", result));
