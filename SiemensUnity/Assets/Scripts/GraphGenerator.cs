@@ -3,19 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using Newtonsoft.Json;
+using Backend.Models;
 
 public enum NodeType {
     Normal,
     EntranceExit,
-}
-
-public class Node {
-    //public string name;
-    public float x, y, z;
-}
-
-public class Edge {
-    public List<string> edge;
 }
 
 public class GraphGenerator : MonoBehaviour
@@ -26,11 +18,7 @@ public class GraphGenerator : MonoBehaviour
         
         foreach(GameObject node in Selection.gameObjects) {
             
-            Node n = new Node();
-            //n.name = node.name;
-            n.x = node.transform.position.x;
-            n.y = node.transform.position.y;
-            n.z = node.transform.position.z;
+            Node n = new Node(node.transform.position.x, node.transform.position.y, node.transform.position.z, Backend.Models.NodeType.Normal);
             nodes.Add(node.name, n);
         }
 
