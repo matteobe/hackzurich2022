@@ -39,7 +39,7 @@ def build_dataset(scenario: str):
 
             data[f"{node}_{sensor_name}"] = daily_fluctuations + week_noise + day_noise
 
-    data.to_csv(f"{scenario}.csv", encoding="utf-8")
+    data.to_csv(f"{scenario}.csv", encoding="utf-8", float_format='%.2f')
 
 
 def cli():

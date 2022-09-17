@@ -21,7 +21,7 @@ def main():
     Convert online table to JSON
     """
 
-    df = pd.read_csv("sensors.csv")
+    df = pd.read_csv("siemens.csv")
     df.rename(columns=new_names, inplace=True)
     duplicate = df.duplicated(subset=["sensor"])
     if any(duplicate):
@@ -57,7 +57,7 @@ def main():
             if parameter == "unit" and "On | Off" in value:
                 sensor_data[parameter] = "bool"
 
-    with open("sensors.json", "w") as f:
+    with open("siemens.json", "w") as f:
         json.dump(parsed, f, indent=4)
 
 

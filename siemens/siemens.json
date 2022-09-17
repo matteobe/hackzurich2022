@@ -1,0 +1,369 @@
+{
+    "electrical energy production PV": {
+        "type": "sensor",
+        "phenomenon": "electricity",
+        "position": "metering",
+        "unit": "kWh",
+        "range": null,
+        "remark": "Often not available"
+    },
+    "electrical energy consumption": {
+        "type": "sensor",
+        "phenomenon": "electricity",
+        "position": "metering",
+        "unit": "kWh",
+        "range": null,
+        "remark": "Can be main building meter or submeter"
+    },
+    "heat consumption": {
+        "type": "sensor",
+        "phenomenon": "water",
+        "position": "metering",
+        "unit": "kWh",
+        "range": null,
+        "remark": "Can be main building meter or submeter"
+    },
+    "cold consumption": {
+        "type": "sensor",
+        "phenomenon": "water",
+        "position": "metering",
+        "unit": "kWh",
+        "range": null,
+        "remark": "Can be main building meter or submeter"
+    },
+    "fresh water consumption": {
+        "type": "sensor",
+        "phenomenon": "water",
+        "position": "metering",
+        "unit": "m3",
+        "range": null,
+        "remark": "Often not available"
+    },
+    "wastewater meter": {
+        "type": "sensor",
+        "phenomenon": "water",
+        "position": "metering",
+        "unit": "m3",
+        "range": null,
+        "remark": "Typically not available"
+    },
+    "gas meter": {
+        "type": "sensor",
+        "phenomenon": null,
+        "position": "metering",
+        "unit": "m3",
+        "range": null,
+        "remark": "Typically not available"
+    },
+    "light command": {
+        "type": "actuator",
+        "phenomenon": "light",
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "blind height command": {
+        "type": "actuator",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "blind angle command": {
+        "type": "actuator",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "supply air damper command": {
+        "type": "actuator",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "supply air reheating valve command": {
+        "type": "actuator",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "radiant ceiling heating valve": {
+        "type": "actuator",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "radiant ceiling cooling valve": {
+        "type": "actuator",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "%",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "air quality (CO2)": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "ppm",
+        "range": [
+            "400",
+            "2000"
+        ],
+        "remark": "Often not available"
+    },
+    "supply air flow (VAV)": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "m3/h",
+        "range": null,
+        "remark": null
+    },
+    "supply air quality (CO2)": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "ppm",
+        "range": [
+            "400",
+            "2000"
+        ],
+        "remark": "Only available in rare cases (no standard instrumentation)"
+    },
+    "relative humidity": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "%RH",
+        "range": [
+            "0",
+            "100"
+        ],
+        "remark": null
+    },
+    "temperature": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "C",
+        "range": [
+            "0",
+            "50"
+        ],
+        "remark": "Room temperature sensors measure a mix between room air and wall temperature"
+    },
+    "presence": {
+        "type": "sensor",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "Absent | Present",
+        "range": null,
+        "remark": null
+    },
+    "brightness_room": {
+        "type": "sensor",
+        "phenomenon": "light",
+        "position": "room",
+        "unit": "lux",
+        "range": [
+            "1",
+            "1000"
+        ],
+        "remark": "Usually available on room segment level (not room level)"
+    },
+    "window contact": {
+        "type": "sensor",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "Open | Closed",
+        "range": null,
+        "remark": "Often not available"
+    },
+    "present setpoint brightness": {
+        "type": "setpoint",
+        "phenomenon": "light",
+        "position": "room",
+        "unit": "lux",
+        "range": [
+            "1",
+            "1000"
+        ],
+        "remark": null
+    },
+    "present setpoint air quality": {
+        "type": "setpoint",
+        "phenomenon": "air",
+        "position": "room",
+        "unit": "ppm",
+        "range": [
+            "400",
+            "2000"
+        ],
+        "remark": null
+    },
+    "present setpoint heating": {
+        "type": "setpoint",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "C",
+        "range": [
+            "0",
+            "50"
+        ],
+        "remark": null
+    },
+    "present setpoint cooling": {
+        "type": "setpoint",
+        "phenomenon": null,
+        "position": "room",
+        "unit": "C",
+        "range": [
+            "0",
+            "50"
+        ],
+        "remark": null
+    },
+    "wind speed": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "weather station",
+        "unit": "km/h",
+        "range": null,
+        "remark": null
+    },
+    "wind direction": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "weather station",
+        "unit": "degAgl",
+        "range": [
+            "0",
+            "360"
+        ],
+        "remark": null
+    },
+    "outside air temperature": {
+        "type": "sensor",
+        "phenomenon": "air",
+        "position": "weather station",
+        "unit": "C",
+        "range": [
+            "50",
+            "50"
+        ],
+        "remark": null
+    },
+    "brightness_facade": {
+        "type": "sensor",
+        "phenomenon": null,
+        "position": "weather station",
+        "unit": "lux",
+        "range": [
+            "0",
+            "100000"
+        ],
+        "remark": "Typically measured individually per facade orientation"
+    },
+    "solar radiation": {
+        "type": "sensor",
+        "phenomenon": null,
+        "position": "weather station",
+        "unit": "W/m2",
+        "range": [
+            "0",
+            "1500"
+        ],
+        "remark": "Measured on horizontal plane (measured e.g. by pyranometer)"
+    },
+    "manual fire detector switch": {
+        "type": null,
+        "phenomenon": null,
+        "position": null,
+        "unit": "bool",
+        "range": null,
+        "remark": "Pull station (US) or call station (EMEA)"
+    },
+    "fire detector danger level": {
+        "type": null,
+        "phenomenon": null,
+        "position": null,
+        "unit": "0..3",
+        "range": null,
+        "remark": "Fire Alarm is dependent on possibly multiple fire detectors"
+    },
+    "fire detector soiling level": {
+        "type": null,
+        "phenomenon": null,
+        "position": null,
+        "unit": "%",
+        "range": [
+            "0",
+            "150"
+        ],
+        "remark": "Called Compensation Value in EN norm (UL norm in US would know Soiling and Sensitivity)"
+    },
+    "heat cost allocator": {
+        "type": null,
+        "phenomenon": "electricity",
+        "position": "room",
+        "unit": "kWh",
+        "range": null,
+        "remark": "Decentral acquisition of consumption costs - allocate heat costs depending on individual heat consumption"
+    },
+    "door position": {
+        "type": null,
+        "phenomenon": null,
+        "position": "room",
+        "unit": "Open | Closed",
+        "range": null,
+        "remark": null
+    },
+    "people counter": {
+        "type": "counter",
+        "phenomenon": null,
+        "position": null,
+        "unit": null,
+        "range": null,
+        "remark": "Often not available"
+    },
+    "occupancy switch": {
+        "type": null,
+        "phenomenon": null,
+        "position": "room",
+        "unit": "bool",
+        "range": null,
+        "remark": "Person in a room (usually only a filtered value available)"
+    }
+}
