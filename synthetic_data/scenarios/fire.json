@@ -1,0 +1,16 @@
+{
+  "steps": 100,
+  "gradient_norm": 10,
+  "nodes": [
+    {
+      "name": "r19",
+      "source": true,
+      "initial_value": 2000
+    },
+    {
+      "name": "r11",
+      "source": true,
+      "initial_value": 1800
+    }
+  ]
+}

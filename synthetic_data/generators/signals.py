@@ -70,7 +70,7 @@ def timeline(start_date: str, days: int, frequency: str) -> Tuple[pd.DatetimeInd
 
 def presence(timestamps: pd.DatetimeIndex, start_time: str, end_time: str, days: List[str] = None) -> np.ndarray:
     """
-    Boolean signal representing presence in a building
+    Boolean signal representing presence in a floorplan
 
     Args:
         timestamps (pd.DatetimeIndex): timestamps to be used for

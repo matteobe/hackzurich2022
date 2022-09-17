@@ -2,16 +2,14 @@
 Author: @matteobe
 """
 
-from typing import List
-
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
-from synthetic_data.diffusion.graph import Node, Graph
+from synthetic_data.entities import Graph
 
 
-def plot_measurements(graph: Graph):
+def plot_graph_measurements(graph: Graph):
     """
     Plot the measurements timeseries for all nodes in a graph
     """
@@ -24,7 +22,7 @@ def plot_measurements(graph: Graph):
     fig.show()
 
 
-def plot_graph(graph: Graph):
+def plot_graph_map(graph: Graph):
     """
     Plot the graph with its nodes
     """
