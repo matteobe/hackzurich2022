@@ -1,14 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Dijkstra.NET.Graph;
+using Backend.App.Graphs;
+using Backend.App.InputReaders;
 using Dijkstra.NET.ShortestPath;
 
-var graph = new Graph<string, string>();
+var reader = new InputReaderService();
+var data = reader.Read();
 
-graph.AddNode("F3_R1_1");
-graph.AddNode("F3_R1_");
-
-graph.Connect(1, 2, 5, "some custom information in edge"); //First node has key equal 1
+var graphBuilder = new GraphBuilder();
+var graph = graphBuilder.Build(data);
 
 ShortestPathResult result = graph.Dijkstra(1, 2); //result contains the shortest path
 
