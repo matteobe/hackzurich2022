@@ -2,9 +2,9 @@
 
 By EscapeBros
 
-HackZurich 2022
+[HackZurich 2022](https://hackzurich.com/)
 
-Challenge: #7 Siemens – From Paper to 4D Buildings
+Challenge: [#7 Siemens – From Paper to 4D Buildings](https://hackzurich.siemens.cool/#/SI_Challenge)
 
 Creatorspace: https://app.creatorspace.dev/fabrizio/projects/Z6bdSq9NoIwJqWGt
 
