@@ -4,12 +4,12 @@ Author: @matteobe
 
 import json
 import argparse
-import click
 from pathlib import Path
 
 import pandas as pd
 
 import synthetic_data as sd
+from synthetic_data.scenarios import escapepro_entry
 
 
 def build_dataset(scenario: str):
@@ -22,15 +22,16 @@ def build_dataset(scenario: str):
         data = json.load(f)
 
     start_date = data["start_date"]
-    duration = data["days"]
+    duration = data["duration"]
     frequency = data["frequency"]
     nodes = data["nodes"]
     sensors = data["sensors"]
 
-    timeline, points = sd.generators.timeline(start_date=start_date, duration=duration, frequency=frequency)
-    periodic_day = sd.generators.periodic(points, periods=duration)
+    timestamps, points = sd.generators.timeline(start_date=start_date, duration=duration, frequency=frequency)
+    periods = int(sd.generators.signals.timedelta_in_secs(timedelta_str=duration) / (24 * 60 * 60))
+    periodic_day = sd.generators.periodic(points, periods=periods)
 
-    data = pd.DataFrame(index=timeline)
+    data = pd.DataFrame(index=timestamps)
     for node in nodes:
         for sensor_name, sensor_info in sensors.items():
             s_min, s_max = sensor_info["min"], sensor_info["max"]
@@ -40,7 +41,7 @@ def build_dataset(scenario: str):
 
             data[f"{node}_{sensor_name}"] = daily_fluctuations + week_noise + day_noise
 
-    data.to_csv(f"{scenario}.csv", encoding="utf-8", float_format='%.2f')
+    data.to_csv(f"normal.csv", encoding="utf-8", float_format='%.2f')
 
 
 def cli():
@@ -51,20 +52,11 @@ def cli():
     build_dataset(scenario=args.name)
 
 
-import click
-from synthetic_data.scenarios import escapepro_entry
-
-
 @escapepro_entry.command()
-@click.argument("project_name", type=str)
-@click.option("--input_file", type=str, help="input file to infer on")
-@click.option("--output_file", type=str, help="output file to save results")
-def infer(project_name, input_file, output_file):
-    """
-        Performs an inference on the provided `input_data_file` and writes it into the `output_data_file`
-        by running an inference pipeline created by `configuration.yaml` and `state.yaml`
-    """
-    pass
+def normal():
+    """Generate sensor data for normal operations scenarios"""
+    build_dataset(scenario="normal")
+
 
 if __name__ == "__main__":
     cli()

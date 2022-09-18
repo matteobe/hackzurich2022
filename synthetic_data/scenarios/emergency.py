@@ -6,6 +6,7 @@ Diffusion-based modelling of a sensor
 
 import json
 import argparse
+import click
 from pathlib import Path
 
 import pandas as pd
@@ -14,6 +15,7 @@ from synthetic_data.generators.signals import timeline, timedelta_in_secs
 from synthetic_data.entities.graph import graph_from_config
 from synthetic_data.diffusion.flow import calculate_graph_flows
 from synthetic_data.utils.visualization import plot_graph_measurements, plot_graph_map
+from synthetic_data.scenarios import escapepro_entry
 
 
 def build_dataset(scenario: str):
@@ -49,14 +51,16 @@ def build_dataset(scenario: str):
                                   gradient_norm=scenario_info['gradient_norm'])
 
     # Print trajectories and floor-plan
-    plot_graph_map(graph)
-    plot_graph_measurements(graph)
+    fig1 = plot_graph_measurements(graph, timestamps)
+    fig2 = plot_graph_map(graph)
+    fig1.show()
+    fig2.show()
 
     # Export sensor data to CSV
     data = pd.DataFrame(index=timestamps)
     for node in graph.connections:
         data[f"{node.name}"] = node.measurements
-    data.to_csv(f"{scenario}.csv", encoding="utf-8", float_format='%.2f')
+    data.to_csv(f"emergency.csv", encoding="utf-8", float_format='%.2f')
 
     # Export sensor data to JSON
     data = dict()
@@ -67,7 +71,7 @@ def build_dataset(scenario: str):
         sensors[f"{node.name}"] = node.measurements
     data['sensors'] = sensors
 
-    with open(f"{scenario}.json", "w") as f:
+    with open(f"emergency.json", "w") as f:
         json.dump(data, f, indent=4)
 
 
@@ -78,6 +82,13 @@ def cli():
                         help="Specify the emergency scenario for which you would like to simulate.")
     args = parser.parse_args()
     build_dataset(scenario=args.scenario)
+
+
+@escapepro_entry.command()
+@click.option("--scenario", type=str, help="Choose from 'fire'")
+def emergency(scenario: str):
+    """Generate sensor data for emergency scenarios"""
+    build_dataset(scenario=scenario)
 
 
 if __name__ == "__main__":
