@@ -1,0 +1,26 @@
+{
+  "start_date": "2022-09-01",
+  "duration": "10d",
+  "frequency": "1min",
+  "nodes": {
+    "F01_R01": "room",
+    "F01_R02": "room",
+    "F01_R03": "room",
+    "F01_C01": "corridor",
+    "F01_C02": "corridor"
+  },
+  "sensors": {
+    "temperature": {
+      "period": "daily",
+      "min": 15,
+      "max": 28,
+      "setPoint": 20
+    },
+    "co2": {
+      "period": "presence",
+      "min": 0,
+      "max": 2000,
+      "setPoint": 200
+    }
+  }
+}
