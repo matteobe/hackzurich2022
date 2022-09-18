@@ -62,8 +62,8 @@ The command will generate a table of periodic sensor data for multiple sensors.
 
 ### SiemensData/
 
-Sensordata and floordata-samples
+Sensordata, 3D models and floordata-samples
 
 ### SiemensUnity/
 
-Containing the Unity Project with the animated 3D floorplan.
+Containing the Unity Project with the source code for the 3D floorplan and data visualiziation. The software can either be used with the generated data or with real sensor data in a real life use case.
