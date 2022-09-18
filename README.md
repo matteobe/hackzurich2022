@@ -10,10 +10,10 @@ Creatorspace: https://app.creatorspace.dev/fabrizio/projects/Z6bdSq9NoIwJqWGt
 
 # Content
 
-## /SiemensData
+## SiemensData/
 
 Sensordata and floordata-samples
 
-## /SiemensUnity
+## SiemensUnity/
 
 Containing the Unity Project with the animated 3D floorplan.
