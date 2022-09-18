@@ -43,6 +43,7 @@ def build_dataset(scenario: str):
     timestamps, points = timeline(start_date=scenario_info['start_date'],
                                   duration=scenario_info['duration'],
                                   frequency=scenario_info['frequency'])
+    print(f"Number of generated timestamps: {points}")
 
     # Run the simulation
     graph = graph_from_config(graph_def)
@@ -51,10 +52,12 @@ def build_dataset(scenario: str):
                                   gradient_norm=scenario_info['gradient_norm'])
 
     # Print trajectories and floor-plan
-    fig1 = plot_graph_measurements(graph, timestamps)
-    fig2 = plot_graph_map(graph)
+    fig1 = plot_graph_map(graph)
+    fig2 = plot_graph_measurements(graph, timestamps)
     fig1.show()
     fig2.show()
+    fig1.write_image("sensors_map.png")
+    fig2.write_image("sensors_readings.png")
 
     # Export sensor data to CSV
     data = pd.DataFrame(index=timestamps)

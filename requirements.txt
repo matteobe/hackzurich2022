@@ -9,3 +9,4 @@ pandas
 # Visualization
 matplotlib
 plotly
+kaleido
