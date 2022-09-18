@@ -9,11 +9,11 @@ Creatorspace: https://app.creatorspace.dev/fabrizio/projects/Z6bdSq9NoIwJqWGt
 
 ![EscapePros](./images/escapepros.png)
 
-## EscapePro
+## EscapePros
 
 > There when it counts
 
-EscapePro provides building users with real-time evacuation information in emergency situation, like: 
+EscapePros provides building users with real-time evacuation information in emergency situation, like: 
 - Fires
 - Flooding
 - Active Shooters
@@ -67,3 +67,10 @@ Sensordata, 3D models and floordata-samples
 ### SiemensUnity/
 
 Containing the Unity Project with the source code for the 3D floorplan and data visualiziation. The software can either be used with the generated data or with real sensor data in a real life use case.
+
+### synthetic_data/
+
+Contains the scripts to create sensor data and simulate fires in a building
+### siemens/
+
+Sensor data related to Siemens.
