@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Backend\Backend\obj\Debug\net471\Backend.csproj.FileListAbsolute.txt" />
+    <None Include="Assets\Resources\emergency.txt" />
     <None Include="Assets\Backend\Backend.App\obj\Debug\net471\Backend.App.csproj.FileListAbsolute.txt" />
     <None Include="Assets\Resources\fire.txt" />
   </ItemGroup>

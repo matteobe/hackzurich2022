@@ -11,6 +11,11 @@ public class GraphManager : MonoBehaviour
     public string graphString;
     public string fireString;
 
+
+    private void Start() {
+        LoadGraphFromString();
+    }
+
     public void SaveGraph() {
         string convert = JsonConvert.SerializeObject(graph);
         PlayerPrefs.SetString("graph", convert);

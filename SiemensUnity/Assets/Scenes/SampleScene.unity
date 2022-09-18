@@ -283,7 +283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 94.149994, y: -104.76}
+  m_AnchoredPosition: {x: 94.149994, y: -97.1}
   m_SizeDelta: {x: 188.29999, y: 43.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205732117
@@ -308,10 +308,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 53
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -674,6 +674,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timestampText: {fileID: 205732117}
+  slider: {fileID: 2035217465}
+  sensors:
+  - f8
+  - f9
+  - r19
+  - f2
+  - r10
+  - f7
+  - r21
+  - r4
+  - r8
+  - r7
+  - r5
+  - f13
+  - r15
+  - f5
+  - r16
+  - f3
+  - f4
+  - f6
+  - f11
+  - r12
+  - r2
+  - r14
+  - r13
+  - r17
+  - r20
+  - r11
+  - f12
+  - r23
+  - f10
+  - r1
+  - f1
+  - r18
+  - r9
+  - r6
+  - r3
+  - r22
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,9 +1033,9 @@ MonoBehaviour:
     m_Options:
     - m_Text: CO2
       m_Image: {fileID: 0}
-    - m_Text: NO2
+    - m_Text: not available
       m_Image: {fileID: 0}
-    - m_Text: VOC
+    - m_Text: not available
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1407,7 +1445,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 816796326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 353734102}
+        m_TargetAssemblyTypeName: DataVisualizer, Assembly-CSharp
+        m_MethodName: GeneratePath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &816796326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,7 +2882,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1782429519}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 35
+  m_MaxValue: 1200
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
