@@ -5,25 +5,29 @@ namespace Backend.Models
 {
     public class Node
     {
+        public string name { get; }
         public double X { get; }
         public double Y { get; }
         public double Z { get; }
         public NodeType NodeType { get; }
 
-        public List<KeyValuePair<Node,double>> edges;
+        public Dictionary<string,double> edges;
+        public List<string> floorPlanes;
 
-        public Node(double x, double y, double z, NodeType nodeType)
+        public Node(double x, double y, double z, NodeType nodeType, string name)
         {
+            this.name = name;
             X = x;
             Y = y;
             Z = z;
             NodeType = nodeType;
 
-            edges = new List<KeyValuePair<Node, double>>();
+            edges = new Dictionary<string, double>();
+            floorPlanes = new List<string>();
         }
 
         public void AddEdge(Node b) {
-            edges.Add(new KeyValuePair<Node, double>(b, CalculateDistance(this, b)));
+            edges.Add(b.name, CalculateDistance(this, b));
         }
         
         private double CalculateDistance(Node A, Node B) {

@@ -17,5 +17,4 @@ namespace Backend.Models
             TimeSeries = timeSeries;
         }
     }
-
 }

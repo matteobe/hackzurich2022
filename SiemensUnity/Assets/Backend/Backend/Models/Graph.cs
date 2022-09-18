@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Backend.Models {
-    class Graph {
-        List<Node> nodes;
+    public class Graph {
+        public Dictionary<string, Node> nodes;
 
         public Graph() {
-            nodes = new List<Node>();
+            nodes = new Dictionary<string, Node>();
         }
 
         public List<Node> GetShortestPath(Node a, Node b) {
@@ -15,26 +16,29 @@ namespace Backend.Models {
             Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
 
             visited.Add(a, 0);
+            prev.Add(a, a);
 
-            foreach(KeyValuePair<Node, double> neighbour in a.edges) {
-                pq.Enqueue(new Edge(a, neighbour.Key, neighbour.Value));
-                visited[neighbour.Key] = neighbour.Value;
+            foreach(KeyValuePair<string, double> neighbour in a.edges) {
+                Node neighbourNode = nodes[neighbour.Key];
+                pq.Enqueue(new Edge(a, neighbourNode, neighbour.Value));
+                visited[neighbourNode] = neighbour.Value;
+                prev[neighbourNode] = a;
             }
             
             while (pq.Count() != 0) {
                 Edge edge = pq.Dequeue();
 
-                foreach (KeyValuePair<Node, double> neighbour in edge.B.edges) {
-
+                foreach (KeyValuePair<string, double> neighbour in edge.B.edges) {
+                    Node neighbourNode = nodes[neighbour.Key];
                     double alt = visited[edge.B] + neighbour.Value;
-                    if ((visited.ContainsKey(neighbour.Key) && visited[neighbour.Key] > alt)|| !visited.ContainsKey(neighbour.Key)) {
-                        visited[neighbour.Key] = alt;
-                        pq.Enqueue(new Edge(edge.B, neighbour.Key, visited[neighbour.Key]));
+                    if ((visited.ContainsKey(neighbourNode) && visited[neighbourNode] > alt)|| !visited.ContainsKey(neighbourNode)) {
+                        visited[neighbourNode] = alt;
+                        pq.Enqueue(new Edge(edge.B, neighbourNode, visited[neighbourNode]));
                         
-                        if (prev.ContainsKey(neighbour.Key)) {
-                            prev[neighbour.Key] = edge.B;
+                        if (prev.ContainsKey(neighbourNode)) {
+                            prev[neighbourNode] = edge.B;
                         } else {
-                            prev.Add(neighbour.Key, edge.B);
+                            prev.Add(neighbourNode, edge.B);
                         }
                     }
                 }
@@ -46,6 +50,7 @@ namespace Backend.Models {
             List<Node> path = new List<Node>();
 
             while (current != a) {
+                Debug.Log(current.name);
                 path.Add(current);
                 current = prev[current];
             }

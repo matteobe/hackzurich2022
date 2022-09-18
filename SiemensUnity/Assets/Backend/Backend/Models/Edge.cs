@@ -3,7 +3,7 @@
 
 // not used
 namespace Backend.Models {
-    class Edge : System.IComparable<Edge> {
+    public class Edge : System.IComparable<Edge> {
         public Node A { get; }
         public Node B { get; }
         public double distance { get; set; }
