@@ -4,6 +4,7 @@ Author: @matteobe
 
 import json
 import argparse
+import click
 from pathlib import Path
 
 import pandas as pd
@@ -26,7 +27,7 @@ def build_dataset(scenario: str):
     nodes = data["nodes"]
     sensors = data["sensors"]
 
-    timeline, points = sd.generators.timeline(start_date=start_date, days=duration, frequency=frequency)
+    timeline, points = sd.generators.timeline(start_date=start_date, duration=duration, frequency=frequency)
     periodic_day = sd.generators.periodic(points, periods=duration)
 
     data = pd.DataFrame(index=timeline)
@@ -44,12 +45,26 @@ def build_dataset(scenario: str):
 
 def cli():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--name', type=str,
-                        choices=['normal', 'fire', 'shooter'],
+    parser.add_argument('--name', type=str, default='normal', choices=['normal'],
                         help="Specify the scenario for which you would like to generate data.")
     args = parser.parse_args()
     build_dataset(scenario=args.name)
 
+
+import click
+from synthetic_data.scenarios import escapepro_entry
+
+
+@escapepro_entry.command()
+@click.argument("project_name", type=str)
+@click.option("--input_file", type=str, help="input file to infer on")
+@click.option("--output_file", type=str, help="output file to save results")
+def infer(project_name, input_file, output_file):
+    """
+        Performs an inference on the provided `input_data_file` and writes it into the `output_data_file`
+        by running an inference pipeline created by `configuration.yaml` and `state.yaml`
+    """
+    pass
 
 if __name__ == "__main__":
     cli()

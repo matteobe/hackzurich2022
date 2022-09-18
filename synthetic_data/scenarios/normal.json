@@ -1,6 +1,6 @@
 {
   "start_date": "2022-09-01",
-  "days": 10,
+  "duration": "10d",
   "frequency": "1min",
   "nodes": {
     "F01_R01": "room",

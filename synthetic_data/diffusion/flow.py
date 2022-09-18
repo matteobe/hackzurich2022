@@ -38,7 +38,7 @@ def calculate_graph_flows(graph: Graph, steps: int = 200, gradient_norm: float =
     source_nodes = [node for node in graph.connections if node.source]
     other_nodes = [node for node in graph.connections if not node.source]
 
-    for _ in range(steps):
+    for _ in range(steps - 1):
         # Emit from sources
         for source_node in source_nodes:
             calculate_node_flows(graph=graph, source_node=source_node, gradient_norm=gradient_norm)

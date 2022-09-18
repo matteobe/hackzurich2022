@@ -19,6 +19,24 @@ days_map = {
 }
 
 
+def timedelta_in_secs(timedelta_str: str) -> int:
+    """Parse a timedelta text to seconds"""
+
+    # Parse duration in seconds
+    if 'S' in timedelta_str or 'sec' in timedelta_str:
+        multiplier = 1
+    elif 'T' in timedelta_str or 'min' in timedelta_str:
+        multiplier = 60
+    elif 'H' in timedelta_str or 'h' in timedelta_str:
+        multiplier = 60 * 60
+    elif 'D' in timedelta_str or 'd' in timedelta_str:
+        multiplier = 60 * 60 * 24
+    else:
+        raise ValueError("Timedelta must be a string containing 'S', 'sec', 'T', 'min', 'H', 'h', 'D' or 'd'")
+    num = int(''.join(c for c in timedelta_str if c.isnumeric())) * multiplier
+    return num
+
+
 def periodic(points: int, periods: int) -> np.ndarray:
     """
     Generate a sequence of periods for seasonality / periodicity simulation.
@@ -36,13 +54,13 @@ def periodic(points: int, periods: int) -> np.ndarray:
     return np.sin(x) / 2 + 0.5
 
 
-def timeline(start_date: str, days: int, frequency: str) -> Tuple[pd.DatetimeIndex, int]:
+def timeline(start_date: str, duration: str, frequency: str) -> Tuple[pd.DatetimeIndex, int]:
     """
     Generate a timeline based on the number of required days and the timestamp frequency
 
     Args:
         start_date (str): date in European format (YYYY-MM-DD)
-        days (int): number of days to be covered in the timeline
+        duration (str): duration available in 'd', 'h', 'min', 'sec'
         frequency (str): available are 'd', 'h', 'min', 'sec'
 
     Return:
@@ -50,21 +68,14 @@ def timeline(start_date: str, days: int, frequency: str) -> Tuple[pd.DatetimeInd
         length (int): number of datapoints in the series
     """
 
-    # Parse frequency
-    if 'min' in frequency:
-        multiplier = 24 * 60
-    elif 'h' in frequency:
-        multiplier = 24
-    else:
-        multiplier = 1
-
-    # Parse numeric value
-    num = int(''.join(c for c in frequency if c.isnumeric()))
-    multiplier = multiplier / num
+    # Parse duration and frequency in seconds
+    duration_num = timedelta_in_secs(duration)
+    frequency_num = timedelta_in_secs(frequency)
 
     # Calculate number of required synthetic_data points
-    points = days * multiplier
+    points = int(duration_num / frequency_num)
     timestamps = pd.date_range(start=start_date, periods=points, freq=frequency)
+
     return timestamps, len(timestamps)
 
 

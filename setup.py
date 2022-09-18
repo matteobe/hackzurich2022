@@ -66,7 +66,8 @@ setup(name=NAME,
       install_requires=INSTALL_REQUIREMENTS,
       entry_points={
           'console_scripts': [
-              'scenario = synthetic_data.scenarios.main:cli'
+              'escapepro-normal = synthetic_data.scenarios.normal:cli',
+              'escapepro-emergency = synthetic_data.scenarios.emergency:cli'
           ]
       },
       include_package_data=True,

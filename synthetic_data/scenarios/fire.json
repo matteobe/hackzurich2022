@@ -1,6 +1,8 @@
 {
-  "steps": 100,
-  "gradient_norm": 10,
+  "start_date": "2022-09-18 09:00",
+  "duration": "20min",
+  "frequency": "15S",
+  "gradient_norm": 15,
   "nodes": [
     {
       "name": "r19",
