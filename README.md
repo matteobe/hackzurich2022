@@ -8,6 +8,8 @@ Challenge: [#7 Siemens – From Paper to 4D Buildings](https://hackzurich.siemen
 
 Creatorspace: https://app.creatorspace.dev/fabrizio/projects/Z6bdSq9NoIwJqWGt
 
+![EscapePros](./images/escapepros.png)
+
 # Content
 
 ## SiemensData/
