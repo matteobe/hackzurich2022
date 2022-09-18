@@ -45,8 +45,8 @@ the Unity game engine.
 The CLI will also open a figure showing the network of nodes and the sensor timeseries. The example below shows the 
 output of the CLI.
 
-![sensors-map](https://github.com/matteobe/hackzurich2022]/blob/main/sensors_map.png?raw=true "Network of sensors")
-![sensors-readings](https://github.com/matteobe/hackzurich2022]/blob/main/sensors_readings.png?raw=true "Sensor values trajectories over time")
+![sensors-map](https://github.com/matteobe/hackzurich2022/blob/main/sensors_map.png?raw=true "Network of sensors")
+![sensors-readings](https://github.com/matteobe/hackzurich2022/blob/main/sensors_readings.png?raw=true "Sensor values trajectories over time")
 
 
 ## Generate "Normal Operations" data
